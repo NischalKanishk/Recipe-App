@@ -1,0 +1,62 @@
+<html>
+    <head>
+        <title>Recipes</title>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css">
+        <link href="https://fonts.googleapis.com/css?family=Acme|Patua+One|Play&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Boogaloo&display=swap" rel="stylesheet">
+        <style type="text/css">
+            .ui.huge.header {
+                text-align: center;
+                font-family: 'Patua One', cursive;
+            }
+            .item {
+                font-family: 'Boogaloo', cursive;
+                font-size: 20px;
+            }
+            #delete {
+                display: inline;
+            }
+            .description {
+                white-space: pre-wrap;
+            }
+            .button {
+                text-align: center;
+            }
+            body {
+                background-image: url("https://wallpapercave.com/wp/wp2570965.jpg");
+                background-size: fill;
+			    background-repeat: no-repeat;
+                
+			
+
+            }
+        </style>
+    </head>
+    <body>
+
+        <div class="ui main text container segment">
+            <div class="ui huge header"><%= recipe.recipeName %></div>
+                <div class="ui top attached">
+                    <div class="item">
+                            <img class="ui centered  rounded image" src="<%= recipe.recipeImage%>">
+                            <div class="content">
+                                <span><strong>Time required to prepare</strong> <%= recipe.recipeTime%></span>
+                            </div>
+                            <br>
+                            <div class="description">
+                                    <% for(var i=0; i<recipe.recipeDesc.length ;i++) {%>
+                                        <p><%- recipe.recipeDesc[i]%></p>
+                                     <% } %>
+                            </div>
+                            <div class="button">
+                                <a class="ui red basic button" href="/recipes/<%= recipe._id %>/edit">Edit</a>
+                                <form id="delete" action="/recipes/<%=recipe._id%>?_method=DELETE" method="POST">
+                                    <button class="ui red basic button">DELETE</button>
+                                </form>
+                            </div>
+                </div>
+            </div>           
+        </div>
+    </body>
+</html>

@@ -1,0 +1,64 @@
+<html>
+    <head>
+        <title>Recipe App</title>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css">
+        <link href="https://fonts.googleapis.com/css?family=Grenze|Mansalva&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Cabin&display=swap" rel="stylesheet">
+        <style type="text/css">
+            body{
+                background-image: url("https://images.unsplash.com/photo-1505935428862-770b6f24f629?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1047&q=80");
+                background-size: cover;
+			    background-repeat: no-repeat;
+			    background-position: center;
+            }
+            .bg-dark {
+                
+                font-family: 'Cabin', sans-serif;
+            }
+            .navbar-dark .navbar-brand {
+                font-size: x-large;
+                font-family: 'Mansalva', cursive;
+            }
+            h1:first-child, h2:first-child, h3:first-child, h4:first-child, h5:first-child {
+                margin-top: 0;
+                font-family: 'Grenze', serif;
+                font-size: -webkit-xxx-large;
+            }
+            #content {
+                text-align: center;
+			    padding-top: 20%;
+                text-shadow: 0px 4px 3px rgba(0,0,0,0.4), 0px 8px 13px rgba(0,0,0,0.1), 0px 18px 23px rgba(0,0,0,0.1);
+            }
+        </style>
+    </head>
+    <body>
+        
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+            <div class="container">
+                <a class="navbar-brand" href="/">Recipe Hub</a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav mr-auto">
+                        <li class="nav-item active">
+                            <a class="nav-link" href="/recipes/new">Add your recipe<span class="sr-only">(current)</span></a>
+                        </li>  
+                        <li class="nav-item active">
+                                <a class="nav-link" href="/recipes/">View Recipes<span class="sr-only">(current)</span></a>
+                        </li>  
+                </div>  
+            </div>
+        </nav> 
+    <div id="content">
+        <h1>Create your own recipe here</h1>
+        <a href="/recipes/new" class="ui teal button"><i class="birthday cake icon"></i>Click to add</a>
+    </div>
+
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+	    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+	    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    </body>
+
+</html>

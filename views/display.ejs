@@ -1,0 +1,128 @@
+<html>
+    <head>
+        <title>Recipes</title>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css">
+        <link href="https://fonts.googleapis.com/css?family=Grenze|Mansalva&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Acme|Play&display=swap" rel="stylesheet">
+        <style type="text/css">
+
+            body {
+                 
+                width: 100%;
+                height: 100vh;
+                font-family: "Exo", sans-serif;
+                color: #fff;
+                background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab );
+                background-size: 400% 400%;
+                -webkit-animation: gradientBG 10s ease infinite;
+                        animation: gradientBG 10s ease infinite;
+            }
+            .header {
+                font-family: 'Play', sans-serif !important;
+                font-size:22px !important;
+            }
+            .description{
+                font-family: 'Acme', sans-serif;
+            }
+            .bg-dark {
+                
+                font-family: 'Cabin', sans-serif;
+            }
+            .navbar-dark .navbar-brand {
+                font-size: x-large;
+                font-family: 'Mansalva', cursive;
+            }
+            .ui.labeled.button:not([class*="left labeled"])>.button {
+                display: flex;
+            }
+            .container {
+               
+                text-align: center;
+            }
+            @-webkit-keyframes gradientBG {
+                0% {
+                    background-position: 0% 50%;
+                }
+                50% {
+                    background-position: 100% 50%;
+                }
+                100% {
+                    background-position: 0% 50%;
+                }
+            }
+            @keyframes gradientBG {
+                0% {
+                    background-position: 0% 50%;
+                }
+                50% {
+                    background-position: 100% 50%;
+                }
+                100% {
+                    background-position: 0% 50%;
+                }
+            }
+            p {
+                text-align: left !important;
+            }
+            .ui.cards {
+                padding-top:30px;
+            }
+            .ui.link.cards {
+                padding-top: 20px; 
+            }
+            .ui.cards>.card a {
+                float: left;
+            }
+        </style>
+    </head> 
+
+    <body>
+            <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+                    <div class="container">
+                        <a class="navbar-brand" href="/">Recipe Hub</a>
+                        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                            <span class="navbar-toggler-icon"></span>
+                        </button>
+                        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                            <ul class="navbar-nav mr-auto">
+                                <li class="nav-item active">
+                                    <a class="nav-link" href="/recipes/new">Add your recipe<span class="sr-only">(current)</span></a>
+                                </li>   
+                        </div>  
+                    </div>
+                </nav>
+            <div class="container"> 
+                <div class="row">
+                    <% recipes.forEach(function(recipe){ %>
+                        <div class="col-md-4">
+                        <div class="ui link cards">
+                        <div class="card">
+                            <div class="image">
+                                <img src="<%=recipe.recipeImage %>">
+                            </div>
+                            <div class="content">
+                                <div class="header"><%= recipe.recipeName %></div>
+                                    <% for(var i=0; i<recipe.recipeDesc.length ;i++) {%>
+                                    <div class="description"><%= recipe.recipeDesc[i].substring(0,50) %>..</div>
+                                        <% } %>
+                                </div>
+                            <div class="extra content">
+                                 <span class="right floated"><%= recipe.recipeTime %></span>
+                            <span>
+                            
+                              <a href="/recipes/<%=recipe._id %>" class="ui blue button">View</a>            
+                            </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                          <% }) %>
+                        
+                </div>
+            </div>
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+	    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+	    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    </body>
+</html>

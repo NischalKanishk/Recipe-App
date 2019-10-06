@@ -1,0 +1,49 @@
+<html>
+    <head>
+        <title>Recipes</title>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css">
+    </head>
+    <body>
+            <div class="container">
+                    <div class="ui main text container segment">
+                        <div class="ui huge header">Edit <%= recipe.recipeName %></div>
+                        <form class="ui form" action="/recipes/<%= recipe._id %>?_method=PUT" method="POST">
+                            <div class="field">
+                                <input type="text" name = "recipe[recipeName]" value="<%= recipe.recipeName %>" placeholder="Recipe Name" required>
+                            </div>
+                            <div id="desc" class="field">
+                                    <% for(var i=0; i<recipe.recipeDesc.length ;i++) {%>
+                                    <textarea name="recipe[recipeDesc]" cols="30" rows="1" placeholder="Recipe Description and Steps"><%- recipe.recipeDesc[i] %></textarea>
+                                        <% } %>
+                                </div>
+                                <div class="field">
+                                        <button onclick="textBoxCreate()" class="ui button"><i class="plus icon"></i>Add Step</button>
+                                </div>
+                            <div class="field">
+                                <input type="url" name="recipe[recipeImage]" value="<%=recipe.recipeImage %>" placeholder="Recipe Image" required> 
+                            </div>
+                            <div class="field">
+                                <input type="time" name="recipe[recipeTime]" value="<%=recipe.recipeTime %>" placeholder="Recipe Time" required>
+                            </div>
+                            <div class="field">
+                                <input type="submit" class="ui red button">
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                <script>
+                        function textBoxCreate(){
+                            var i =1;
+                            var y = document.createElement("TEXTAREA");
+                            y.setAttribute("name", "recipe[recipeDesc]");
+                            y.setAttribute("cols", "30");
+                            y.setAttribute("rows", "3");
+                            y.setAttribute("placeholder", "Steps");
+                            
+                            document.getElementById("desc").appendChild(y);
+                            i++;
+                        }
+                    </script>
+    </body>
+</html>
